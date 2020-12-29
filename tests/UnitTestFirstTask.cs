@@ -9,35 +9,12 @@ namespace tests
     [TestFixture(typeof(Guid))]
     [TestFixture(typeof(double))]
     [TestFixture(typeof(string))]
-    public class Tests<T>
+    public class TestsFirstTask<T> : BaseTest<T>
     {
         IMyList<T> _myList;
         T secondItem;
 
-        T GetRandomData() {
-            if (typeof(T) == typeof(int)) {
-                Random r = new Random();
-                return (T)(object)r.Next();
-            } else 
-            if (typeof(T) == typeof(Guid)) {
-                return (T)(object)Guid.NewGuid();
-            } else 
-            if (typeof(T) == typeof(double)) {
-                Random r = new Random();
-                return (T)(object)r.NextDouble();
-            } else 
-            if (typeof(T) == typeof(string)) {
-                Random r = new Random();
-                var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-                string ret = string.Empty;
-                for(int i = 0; i < 20; i++)
-                    ret += chars[r.Next(20)];
-                Console.WriteLine(ret);
-                return (T)(object)ret;
-            }
-
-            throw new Exception("Error when trying to generate random numbers");
-        }
+        
 
         [SetUp]
         public void Setup()

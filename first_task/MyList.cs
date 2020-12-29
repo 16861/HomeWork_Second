@@ -1,4 +1,4 @@
-using System;
+using System.Collections;
 
 namespace first_task {
     public class MyList<T> : IMyList<T> {
@@ -36,6 +36,11 @@ namespace first_task {
                     return true;
             }
             return false;
+        }
+
+        public IEnumerator GetEnumerator() {
+            for(int i = 0; i < _current; i++)
+                yield return arr[i];
         }
     }
 }
